@@ -1,0 +1,31 @@
+//
+// Created by shangqi on 2020/11/21.
+//
+
+#ifndef SDD_RAMSTORE_H
+#define SDD_RAMSTORE_H
+
+#pragma once
+#include <map>
+#include <array>
+#include <vector>
+
+using namespace std;
+
+using byte_t = uint8_t;
+using block = std::vector<byte_t>;
+
+class RAMStore {
+    std::vector<block> store;
+    size_t size;
+
+public:
+    RAMStore(size_t num, size_t size);
+    ~RAMStore() = default;
+
+    block Read(int pos);
+    void Write(int pos, block b);
+
+};
+
+#endif //SDD_RAMSTORE_H
